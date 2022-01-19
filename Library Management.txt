@@ -1,0 +1,225 @@
+// C program for the E-library
+// Management System
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+  
+// Create Structure of Library
+struct library {
+    char book_name[20];
+    char author[20];
+    char genre[20];
+    int pages;
+    float price;
+    char date[9];
+};
+  
+// Driver Code
+int main()
+{
+    // Create a instance
+    struct library lib[100];
+  
+    char ar_nm[30], bk_nm[30];
+  
+    // Keep the track of the number of
+    // of books available in the library
+    int i, input, count;
+  
+    i = input = count = 0;
+    char d[2], m[2], year[2];
+  
+    // Iterate the loop
+    while (input != 5) {
+  
+        printf("\n\n********######"
+               "WELCOME TO E-LIBRARY "
+               "#####********\n");
+        printf("\n\n1. Add book infor"
+               "mation\n2. Display "
+               "book information\n");
+        printf("3. List all books of "
+               "given author\n");
+        printf(
+            "4. List the count of book"
+            "s in the library\n");
+        printf("5. Enter date (dd/mm/yy):\n");    
+        printf("6. Exit");
+  
+        // Enter the book details
+        printf("\n\nEnter one of "
+               "the above: ");
+        scanf("%d", &input);
+  
+        // Process the input
+        switch (input) {
+  
+        // Add book
+        case 1:
+  
+            printf("Enter book name = ");
+            scanf("%s", lib[i].book_name);
+  
+            printf("Enter author name = ");
+            scanf("%s", lib[i].author);
+  
+            printf("Enter pages = ");
+            scanf("%d", &lib[i].pages);
+  
+            printf("Enter price = ");
+            scanf("%f", &lib[i].price);
+            
+            printf("Enter genre = ");
+            scanf("%s", lib[i].genre);
+            
+            printf("Enter Date = ");
+            scanf("%s", lib[i].date);
+            count++;
+  
+            break;
+  
+        // Print book information
+        case 2:
+            printf("you have entered"
+                   " the following "
+                   "information\n");
+            for (i = 0; i < count; i++) {
+  
+                printf("book name = %s",
+                       lib[i].book_name);
+  
+                printf("\t author name = %s",
+                       lib[i].author);
+  
+                printf("\t  pages = %d",
+                       lib[i].pages);
+  
+                printf("\t  price = %f",
+                       lib[i].price);
+                
+                printf("\t genre = %s",
+                       lib[i].genre);
+                
+                printf("\t date = %s",
+                       lib[i].date);
+            }
+            break;
+  
+        // Take the author name as input
+        case 3:
+            printf("Enter author name : ");
+            scanf("%s", ar_nm);
+            for (i = 0; i < count; i++) {
+  
+                if (strcmp(ar_nm,
+                           lib[i].author)
+                    == 0)
+                    printf("%s %s %d %f %s %s",
+                           lib[i].book_name,
+                           lib[i].author,
+                           lib[i].pages,
+                           lib[i].price,
+                           lib[i].genre,
+                           lib[i].date);
+            }
+            break;
+  
+        // Print total count
+        case 4:
+            printf("\n No of books in "
+                   "library : %d",
+                   count);
+            break;
+        case 5:
+            exit(0);
+        }
+    }
+    return 0;
+}
+
+
+
+Output:
+
+
+
+********######WELCOME TO E-LIBRARY #####********
+
+
+1. Add book information
+2. Display book information
+3. List all books of given author
+4. List the count of books in the library
+5. Exit
+
+Enter one of the above: 1
+Enter book name = SherlockHolmes
+Enter author name = ArthurCOna   onanDoyle
+Enter pages = 300
+Enter price = 699
+Enter genre = Mystery
+Enter Date in dd/mm/yyyy = 09/01/2022
+
+
+********######WELCOME TO E-LIBRARY #####********
+
+
+1. Add book information
+2. Display book information
+3. List all books of given author
+4. List the count of books in the library
+5. Exit
+
+Enter one of the above: 2
+you have entered the following information
+book name = SherlockHolmes
+author name = ArthurConanDoyle
+pages = 300
+price = 699.000000
+genre = Mystery
+date = 09/01/2022
+
+
+********######WELCOME TO E-LIBRARY #####********
+
+
+1. Add book information
+2. Display book information
+3. List all books of given author
+4. List the count of books in the library
+5. Exit
+
+Enter one of the above: 3
+Enter author name : ArthurConanDoyle
+SherlockHolmes
+ArthurConanDoyle
+300
+699.000000
+Mystery
+09/01/2022
+
+
+********######WELCOME TO E-LIBRARY #####********
+
+
+1. Add book information
+2. Display book information
+3. List all books of given author
+4. List the count of books in the library
+5. Exit
+
+Enter one of the above: 4
+
+ No of books in library : 1
+
+********######WELCOME TO E-LIBRARY #####********
+
+
+1. Add book information
+2. Display book information
+3. List all books of given author
+4. List the count of books in the library
+5. Exit
+
+Enter one of the above: 5
+
